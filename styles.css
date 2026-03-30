@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --azul-claro: #007ea7;     /* Azul Oceano */
+    --cinza-grafite: #495057;  /* O novo Cinza Escuro equilibrado */
+    --bg-body: #e9ecef;        /* Cinza Platina (Fundo) */
+    --branco: #ffffff;
+}
+
+body { 
+    font-family: 'Inter', sans-serif; 
+    background-color: var(--bg-body); 
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1; /* Faz o conteúdo principal ocupar todo o espaço restante */
+    min-width: 0; /* Evita que tabelas grandes quebrem o layout */
+}
+
+
+/* --- CABEÇALHO DA TABELA --- */
+.table-dark {
+    background-color: var(--cinza-grafite) !important;
+    border-color: #3e444a;
+}
+
+
+/* --- SIDEBAR BASE --- */
+.sidebar {
+    background-color: var(--bg-body);
+    color: var(--branco);
+    min-height: 100vh;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link i {
+    color: var(--azul-claro); /* Ícones em azul para dar um toque de cor no cinza */
+    margin-right: 10px;
+    font-size: 1.1rem;
+}
+
+.nav-link:hover i {
+    color: var(--branco); /* No hover, o ícone fica branco junto com o texto */
+}
+
+.btn-primary { background-color: var(--azul-claro); border: none; }
+.btn-primary:hover { background-color: #0086ba; }
+
+/* --- LÓGICA MOBILE (SANDUÍCHE) --- */
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: fixed;
+        top: 56px; /* Altura da navbar */
+        left: -260px; /* Escondido */
+        width: 250px; /* Largura limitada */
+        height: calc(100vh - 56px);
+        z-index: 1050;
+        display: block !important;
+    }
+
+    /* O Pulo do Gato: Ao clicar no label, o checkbox marca e o CSS move a sidebar */
+    #menu-toggle:checked ~ .container-fluid .row .sidebar {
+        left: 0 !important;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+    }
+
+    /* Escurece o fundo quando o menu abre */
+    #menu-toggle:checked ~ .container-fluid .row main {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
+
+/* --- AJUSTE DESKTOP --- */
+@media (min-width: 768px) {
+    .row {
+        display: flex; /* Garante que sidebar e main fiquem lado a lado */
+    }
+    .sidebar {
+        position: sticky !important;
+        top: 0;
+        height: 100vh;
+        left: 0 !important;
+    }
+}
