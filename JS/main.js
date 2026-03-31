@@ -31,18 +31,11 @@ form.addEventListener("submit", (event) => {
 async function salvarCliente(dadosDoForm) {
   try {
     
-
-const listaAtual = await obterClientesService();
-const novoId = Date.now();
-const clienteComId = { 
-      ...dadosDoForm, 
-      id: Number(novoId) 
-    };
-
-await cadastrarClientesService(clienteComId);
+const clienteCriado = await cadastrarClientesService(dadosDoForm);
 form.reset();
 exibirClientes();
-console.log(`Sucesso! Cliente cadastrado com ID: ${novoId}`);
+
+alert("cliente cadastro com sucesso!")
 
   } catch (error) {
     console.error("Erro ao gerar ID ou salvar:", error);
