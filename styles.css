@@ -18,20 +18,15 @@ body {
     overflow-x: hidden;
 }
 
-main {
-    flex: 1; /* Faz o conteúdo principal ocupar todo o espaço restante */
-    min-width: 0; /* Evita que tabelas grandes quebrem o layout */
-}
 
-
-/* --- CABEÇALHO DA TABELA --- */
+/*titulo tabela*/
 .table-dark {
     background-color: var(--cinza-grafite) !important;
     border-color: #3e444a;
 }
 
 
-/* --- SIDEBAR BASE --- */
+/*sidebar*/
 .sidebar {
     background-color: var(--bg-body);
     color: var(--branco);
@@ -52,7 +47,10 @@ main {
 .btn-primary { background-color: var(--azul-claro); border: none; }
 .btn-primary:hover { background-color: #0086ba; }
 
-/* --- LÓGICA MOBILE (SANDUÍCHE) --- */
+
+
+
+/*sanduiche*/
 @media (max-width: 767.98px) {
     .sidebar {
         position: fixed;
@@ -64,28 +62,25 @@ main {
         display: block !important;
     }
 
-    /* O Pulo do Gato: Ao clicar no label, o checkbox marca e o CSS move a sidebar */
-    #menu-toggle:checked ~ .container-fluid .row .sidebar {
+    
+    #menu-toggle:checked ~ .container-fluid .sidebar{
         left: 0 !important;
         box-shadow: 5px 0 15px rgba(0,0,0,0.3);
     }
-
-    /* Escurece o fundo quando o menu abre */
-    #menu-toggle:checked ~ .container-fluid .row main {
+    #menu-toggle:checked ~ .container-fluid .row .col {
         opacity: 0.3;
         pointer-events: none;
     }
+
 }
 
-/* --- AJUSTE DESKTOP --- */
+
+/*ajuste desktop*/
 @media (min-width: 768px) {
-    .row {
-        display: flex; /* Garante que sidebar e main fiquem lado a lado */
-    }
-    .sidebar {
-        position: sticky !important;
-        top: 0;
-        height: 100vh;
-        left: 0 !important;
-    }
+ .sidebar {
+    position: sticky !important;
+    top: 0;
+    height: 100vh;
+    left: 0 !important;
+}
 }

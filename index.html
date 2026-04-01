@@ -17,16 +17,16 @@
 <input type="checkbox" id="menu-toggle" class="d-none">
 
 <nav class="navbar navbar-dark bg-dark d-md-none shadow-sm">
+    
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="#" style="color: var(--azul-claro)">BlueBank</a>
         
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#" style="color: var(--azul-claro)">BlueBank</a>
+        <label for="menu-toggle" class="navbar-toggler" style="cursor: pointer;">
             
-            <label for="menu-toggle" class="navbar-toggler" style="cursor: pointer;">
-                
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             
-            </label>
-        </div>
+        </label>
+    </div>
 
 </nav>
 
@@ -34,62 +34,63 @@
 <!-- conteudo no container -->
 
 <div class="container-fluid">
-<div class="row">
-            
+    <div class="row">
+        
 
 <!-- menu side bar -->
 
 <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar p-3 shadow">
-                
+    
     <h4 class="text-center py-3 d-none d-md-block" style="color: var(--azul-claro)">
-                    <i class="bi bi-shield-check"></i> BlueBank
+        <i class="bi bi-shield-check"></i> BlueBank
     </h4>
-                
+    
     <ul class="nav flex-column gap-2 mt-2">
         
-        <li class="nav-item"><a href="#clientes" class="nav-link active rounded"><i class="bi bi-people me-2"></i> Clientes</a></li>
-        <li class="nav-item"><a href="#contas" class="nav-link rounded"><i class="bi bi-wallet2 me-2"></i> Contas</a></li>
-        <li class="nav-item"><a href="#transacoes" class="nav-link rounded"><i class="bi bi-arrow-left-right me-2"></i>Transações</a></li>
-    
+        <li class="nav-item"><a href="#home" class="nav-link active" data-secao="home"><i class="bi bi-people me-2"></i> Clientes</a></li>
+        <li class="nav-item"><a href="#contas" class="nav-link "data-secao="contas"><i class="bi bi-wallet2 me-2"></i> Contas</a></li>
+        <li class="nav-item"><a href="#transacoes" class="nav-link "data-secao="transacoes"><i class="bi bi-arrow-left-right me-2"></i>Transações</a></li>
+        
     </ul>
 
 </nav>
 
 <!-- formulario para cadastrar cliente -->
 <div class="col">
-    <div class="d-flex justify-content-between align-items-center mb-3 py-3">
-        
-        <h2 class="fw-bold text-dark">Gerenciamento de Clientes</h2>
-        
-    </div>
-
-
-    <form id="form-cliente" class="d-flex flex-column flex-md-row gap-3 p-3 bg-white rounded shadow-sm" data-action="salvar">
-        <input type="hidden" id="id" value="">
-
-        <div class="flex-grow-1">
-            <label for="nome" class="form-label fw-bold small">Nome</label>
-            <input class="form-control" id="nome" placeholder="Nome completo" />
+    <section id="home" class="secao">
+        <div class="d-flex justify-content-between align-items-center mb-3 py-3">
+            
+            <h2 class="fw-bold text-dark">Gerenciamento de Clientes</h2>
+            
         </div>
 
-        <div class="flex-grow-1">
-            <label for="cpf" class="form-label fw-bold small">CPF</label>
-            <input class="form-control" id="cpf" placeholder="000.000.000-00" />
-        </div>
 
-        <div class="flex-grow-1">
-            <label for="email" class="form-label fw-bold small">Email</label>
-            <input class="form-control" id="email" placeholder="email@exemplo.com" />
-        </div>
+        <form id="form-cliente" class="d-flex flex-column flex-md-row gap-3 p-3 bg-white rounded shadow-sm" data-action="salvar">
+            <input type="hidden" id="id" value="">
 
-    
-    <button id="btn-salvar-cliente"type="submit" class="btn btn-primary shadow-sm"> 
-        Cadastrar Cliente
-    </button>
+            <div class="flex-grow-1">
+                <label for="nome" class="form-label fw-bold small">Nome</label>
+                <input class="form-control" id="nome" placeholder="Nome completo" />
+            </div>
+
+            <div class="flex-grow-1">
+                <label for="cpf" class="form-label fw-bold small">CPF</label>
+                <input class="form-control" id="cpf" placeholder="000.000.000-00" />
+            </div>
+
+            <div class="flex-grow-1">
+                <label for="email" class="form-label fw-bold small">Email</label>
+                <input class="form-control" id="email" placeholder="email@exemplo.com" />
+            </div>
+
+            
+            <button id="btn-salvar-cliente"type="submit" class="btn btn-primary shadow-sm"> 
+                Cadastrar Cliente
+            </button>
 
 
 
-    </form>
+        </form>
 
 
 <!-- tabela de clientes -->
@@ -97,6 +98,26 @@
 
 
 <div id="lista-clientes"></div>
+
+</section>
+
+<section id="contas" class="mb-3 py-3 secao d-none">
+    <h2 class="fw-bold text-dark py-3">Gerenciamento de Contas</h2>
+
+    <div class="p-3 bg-white rounded shadow-sm">
+        <p>Aqui você pode gerenciar contas bancárias.</p>
+    </div>
+</section>
+
+<section id="transacoes" class="mb-3 py-3 secao d-none">
+    <h2 class="fw-bold text-dark py-3">Transações</h2>
+
+    <div class="p-3 bg-white rounded shadow-sm">
+        <p>Aqui você pode visualizar transações.</p>
+    </div>
+</section>
+
+
 
 
 </div>
@@ -108,10 +129,10 @@
 </div>
 
 
-    <script src="JS/ui.js"></script>
-    <script src="JS/api.js"></script>
-    <script src="JS/validacao.js"></script>
-    <script src="JS/main.js"></script>
-    
+<script src="JS/ui.js"></script>
+<script src="JS/api.js"></script>
+<script src="JS/validacao.js"></script>
+<script src="JS/main.js"></script>
+
 </body>
 </html>
