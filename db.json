@@ -1,4 +1,23 @@
 {
-  "clientes": [],
+  "clientes": [
+    {
+      "id": "gm13icVWjtA",
+      "nome": "xavier",
+      "cpf": "123456789",
+      "email": "alex@"
+    },
+    {
+      "nome": "bruno",
+      "cpf": "123654789",
+      "email": "bruno@",
+      "id": "oDlebguDbdE"
+    },
+    {
+      "nome": "Carolina",
+      "cpf": "987654",
+      "email": "carolina@",
+      "id": "a3a-3hF0cf8"
+    }
+  ],
   "$schema": "./node_modules/json-server/schema.json"
 }

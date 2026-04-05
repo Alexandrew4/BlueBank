@@ -4,7 +4,15 @@
 async function exibirClientes() {
     try {
         const resposta = await obterClientesService();
-        renderizaTabelaCompleta(resposta);
+        
+        const termoBusca = campoFiltro.value.toLowerCase();
+
+    const clientesFiltrados = resposta.filter(cliente =>
+      cliente.nome.toLowerCase().includes(termoBusca)
+    );
+
+
+        renderizaTabelaCompleta(clientesFiltrados);
     } catch (error) {
         console.error("Erro ao carregar clientes:", error);
     }

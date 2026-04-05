@@ -123,3 +123,12 @@ linksMenu.forEach(link => {
     menuToggle.checked = false;
   });
 });
+
+// filtar cliente
+
+const campoFiltro = document.querySelector("#filtro-nome");
+
+campoFiltro.addEventListener("input", () => {
+  exibirClientes();
+});
+
